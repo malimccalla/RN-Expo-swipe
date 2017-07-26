@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Deck from './src/Deck';
+import { Button, Card } from 'react-native-elements';
 
 const DATA = [
   { id: 1, text: 'Card #1', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
@@ -16,7 +17,19 @@ const DATA = [
 export default class App extends React.Component {
   renderCard(item) {
     return (
-      <Text>{item.text}</Text>
+      <Card
+        key={item.id}
+        title={item.text}
+        image={{ uri: item.uri }}
+      >
+        <Text style={{ margin: 10 }}>Sup</Text>
+        <Button
+          icon={{ name: 'code' }}
+          backgroundColor={'#0089ee'}
+          title="View Now"
+          borderRadius={3}
+        />
+      </Card>
     )
   }
 
