@@ -3,11 +3,12 @@ import { View, Animated } from 'react-native';
 
 class Ball extends Component {
   componentWillMount() {
-    console.log('Mounding');
     this.position = new Animated.ValueXY(0,0);
+    console.log('Position before', this.position.getLayout());
     this.moveBall = Animated.spring(this.position, {
       toValue: { x: 200, y: 200 }
     }).start()
+    console.log('Position after', this.position);
   }
 
   render() {
