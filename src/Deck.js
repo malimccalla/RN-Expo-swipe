@@ -90,11 +90,16 @@ class Deck extends Component {
     const rotate = position.x.interpolate({
       inputRange: [-SCREEN_WIDTH, 0, SCREEN_WIDTH],
       outputRange: ['20deg', '0deg', '-20deg']
-    })
+    });
+
+    const scale = position.y.interpolate({
+      inputRange: [-SCREEN_WIDTH, 0, SCREEN_WIDTH],
+      outputRange: [0.8, 1, 0.8]
+    });
 
     return {
       ...position.getLayout(),
-      transform: [{ rotate }]
+      transform: [{ rotate }, { scale }]
     }
   }
 
